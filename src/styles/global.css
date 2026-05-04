@@ -1,0 +1,84 @@
+@import "tailwindcss";
+
+@theme {
+  /* Blob / Accent Colors */
+  --color-blob-yellow: #F6D365;
+  --color-blob-lavender: #C4B5FD;
+  --color-accent-green: #07C160;
+  --color-accent-red: #EF4444;
+  --color-accent-gold: #F59E0B;
+
+  /* Surface Colors */
+  --color-surface-light: #FFFFFF;
+  --color-surface-warm: #F5F5F0;
+  --color-surface-lavender: #EDE9FE;
+  --color-surface-dark: #2A2A2A;
+  --color-surface-darker: #1F1F1F;
+
+  /* Text Colors */
+  --color-text-primary: #1A1A1A;
+  --color-text-secondary: #6B7280;
+  --color-text-muted: #9CA3AF;
+  --color-text-on-dark: #F9FAFB;
+
+  /* Fonts */
+  --font-serif: "Playfair Display", "Georgia", serif;
+  --font-sans: "Inter", "system-ui", sans-serif;
+
+  /* Transitions */
+  --ease-out-expo: cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+/* Google Fonts are loaded via <link> in BaseLayout */
+
+/* Base resets */
+html {
+  scroll-behavior: smooth;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+body {
+  font-family: var(--font-sans);
+  color: var(--color-text-primary);
+  background: var(--color-surface-light);
+  overflow-x: hidden;
+}
+
+/* Reduced motion */
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+
+/* Page transition overlay */
+.page-transition-overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 9999;
+  background: var(--color-surface-dark);
+  transform: scaleY(0);
+  transform-origin: bottom;
+  pointer-events: none;
+}
+
+/* Ensure animated elements are visible if GSAP fails or hasn't loaded */
+[data-gsap="fade-up"],
+[data-gsap="stagger-children"] > *,
+[data-gsap="reveal-image"] {
+  will-change: opacity, transform;
+}
+
+/* Selection color */
+::selection {
+  background: var(--color-blob-lavender);
+  color: var(--color-text-primary);
+}

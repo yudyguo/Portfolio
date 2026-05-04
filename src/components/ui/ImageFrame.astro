@@ -1,0 +1,40 @@
+---
+interface Props {
+  src?: string;
+  alt?: string;
+  caption?: string;
+  class?: string;
+  aspect?: string;
+}
+
+const {
+  src,
+  alt = '',
+  caption,
+  class: className = '',
+  aspect = 'aspect-[16/10]',
+} = Astro.props;
+---
+
+<figure class:list={['group', className]} data-gsap="reveal-image">
+  <div class:list={['overflow-hidden rounded-xl shadow-xl', aspect]}>
+    {src ? (
+      <img
+        src={src}
+        alt={alt}
+        class:list={[
+          'w-full transition-transform duration-700 group-hover:scale-[1.02]',
+          aspect ? 'h-full object-cover' : 'h-auto'
+        ]}
+        loading="lazy"
+      />
+    ) : (
+      <div class="w-full h-full bg-gradient-to-br from-surface-warm to-surface-lavender/40 flex items-center justify-center">
+        <span class="text-text-muted text-sm">{alt || 'Screenshot'}</span>
+      </div>
+    )}
+  </div>
+  {caption && (
+    <figcaption class="text-center text-text-muted text-sm mt-3">{caption}</figcaption>
+  )}
+</figure>

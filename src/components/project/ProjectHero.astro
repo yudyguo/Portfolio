@@ -1,0 +1,79 @@
+---
+interface Props {
+  title: string;
+  platform: string;
+  platformDescription: string;
+  role: string;
+  image?: string;
+  imageAlt?: string;
+  variant?: 'light' | 'dark';
+}
+
+const {
+  title,
+  platform,
+  platformDescription,
+  role,
+  image,
+  imageAlt = '',
+  variant = 'light',
+} = Astro.props;
+
+const isDark = variant === 'dark';
+---
+
+<section class:list={[
+  'min-h-[80vh] flex items-center pt-20',
+  isDark ? 'bg-surface-dark text-text-on-dark' : 'bg-surface-warm',
+]}>
+  <div class="max-w-7xl mx-auto px-6 md:px-10 w-full py-16 md:py-24">
+    <div class="grid md:grid-cols-2 gap-12 md:gap-16 items-center">
+      <!-- Text Side -->
+      <div>
+        <h1 class="font-serif text-3xl md:text-5xl lg:text-6xl font-semibold leading-tight mb-8" data-gsap="fade-up">
+          {title}
+        </h1>
+
+        <div class="space-y-6" data-gsap="fade-up">
+          <div>
+            <p class:list={[
+              'text-xs uppercase tracking-widest mb-1',
+              isDark ? 'text-text-muted' : 'text-text-secondary',
+            ]}>{platform}</p>
+            <p class:list={[
+              'text-base md:text-lg',
+              isDark ? 'text-text-on-dark/80' : 'text-text-primary',
+            ]}>{platformDescription}</p>
+          </div>
+
+          <div>
+            <p class:list={[
+              'text-xs uppercase tracking-widest mb-1',
+              isDark ? 'text-text-muted' : 'text-text-secondary',
+            ]}>My Role</p>
+            <p class:list={[
+              'text-base md:text-lg',
+              isDark ? 'text-text-on-dark/80' : 'text-text-primary',
+            ]}>{role}</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Image Side -->
+      <div class="relative" data-gsap="reveal-image">
+        {image ? (
+          <img
+            src={image}
+            alt={imageAlt}
+            class="w-full rounded-xl shadow-2xl"
+            loading="eager"
+          />
+        ) : (
+          <div class="w-full aspect-[4/3] rounded-xl bg-surface-lavender/30 flex items-center justify-center">
+            <span class="text-text-muted text-sm">Project screenshot</span>
+          </div>
+        )}
+      </div>
+    </div>
+  </div>
+</section>

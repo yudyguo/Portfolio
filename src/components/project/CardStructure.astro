@@ -1,0 +1,76 @@
+---
+---
+
+<section class="bg-surface-dark py-20 md:py-32">
+  <div class="max-w-6xl mx-auto px-6 md:px-10">
+    <div class="mb-6" data-gsap="fade-up">
+      <div class="flex gap-6 mb-4">
+        <span class="text-text-muted text-sm">Library</span>
+        <span class="text-text-on-dark text-sm font-medium border-b border-text-on-dark pb-1">Optimization</span>
+      </div>
+      <h2 class="font-serif text-2xl md:text-3xl font-semibold text-text-on-dark mb-2">
+        Mini Program Card Sharing
+      </h2>
+      <p class="text-text-muted text-lg">
+        What you see is what you get, with a simplified workflow.
+      </p>
+    </div>
+
+    <div class="grid md:grid-cols-2 gap-12 mt-12">
+      <!-- Card anatomy -->
+      <div data-gsap="fade-up">
+        <div class="grid grid-cols-2 gap-4">
+          <!-- Expression side -->
+          <div>
+            <p class="text-text-muted text-sm mb-3">Simplicity on the surface</p>
+            <div class="space-y-3">
+              <div class="bg-white/10 rounded-lg px-4 py-3 text-text-on-dark text-sm font-medium">Owner</div>
+              <div class="bg-white/10 rounded-lg px-4 py-3 text-text-on-dark text-sm font-medium">Title</div>
+              <div class="bg-white/10 rounded-lg px-4 py-3 text-text-on-dark text-sm font-medium">Thumbnail</div>
+            </div>
+          </div>
+          <!-- Logic side -->
+          <div>
+            <p class="text-text-muted text-sm mb-3">Complexity underneath</p>
+            <div class="space-y-3">
+              <div class="bg-white/10 rounded-lg px-4 py-3 text-text-on-dark text-sm font-medium">AppID</div>
+              <div class="bg-white/10 rounded-lg px-4 py-3 text-text-on-dark text-sm font-medium">Path</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Path simplification -->
+      <div data-gsap="fade-up">
+        <h3 class="text-xl font-semibold text-text-on-dark mb-6">
+          Shift user perspective — "Enter page path"
+        </h3>
+
+        <div class="space-y-6">
+          <div class="flex items-start gap-4">
+            <div class="w-2 h-2 rounded-full bg-accent-red mt-2 shrink-0"></div>
+            <div>
+              <p class="text-text-on-dark font-medium">Complicated</p>
+              <p class="text-text-muted text-sm">Query Mini Program path from the backend</p>
+            </div>
+          </div>
+
+          <!-- Curvy arrow between -->
+          <div class="pl-4">
+            <svg class="w-px h-12" viewBox="0 0 2 48">
+              <line x1="1" y1="0" x2="1" y2="48" stroke="#6B7280" stroke-width="1" stroke-dasharray="4 4" />
+            </svg>
+          </div>
+
+          <div class="flex items-start gap-4">
+            <div class="w-2 h-2 rounded-full bg-accent-green mt-2 shrink-0"></div>
+            <div>
+              <p class="text-text-on-dark font-medium">Simplified</p>
+              <p class="text-text-muted text-sm">One-click copy page path</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

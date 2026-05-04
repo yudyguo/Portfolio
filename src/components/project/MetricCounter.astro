@@ -1,0 +1,48 @@
+---
+interface Props {
+  value: number;
+  suffix?: string;
+  prefix?: string;
+  label: string;
+  variant?: 'light' | 'dark';
+  size?: 'sm' | 'md' | 'lg';
+}
+
+const {
+  value,
+  suffix = '',
+  prefix = '',
+  label,
+  variant = 'light',
+  size = 'md',
+} = Astro.props;
+
+const isDark = variant === 'dark';
+
+const sizeClasses: Record<string, string> = {
+  sm: 'text-2xl md:text-3xl',
+  md: 'text-3xl md:text-5xl',
+  lg: 'text-4xl md:text-6xl',
+};
+---
+
+<div class="text-center">
+  <p
+    class:list={[
+      'font-serif font-bold tabular-nums',
+      sizeClasses[size],
+      isDark ? 'text-text-on-dark' : 'text-text-primary',
+    ]}
+    data-counter={value}
+    data-counter-prefix={prefix}
+    data-counter-suffix={suffix}
+  >
+    {prefix}0{suffix}
+  </p>
+  <p class:list={[
+    'text-sm mt-2',
+    isDark ? 'text-text-muted' : 'text-text-secondary',
+  ]}>
+    {label}
+  </p>
+</div>

@@ -1,0 +1,18 @@
+{
+  "name": "yudy-portfolio",
+  "version": "1.0.0",
+  "type": "module",
+  "scripts": {
+    "dev": "astro dev",
+    "build": "astro build",
+    "preview": "astro preview"
+  },
+  "dependencies": {
+    "astro": "^5.7.13",
+    "gsap": "^3.12.7"
+  },
+  "devDependencies": {
+    "@tailwindcss/vite": "^4.1.5",
+    "tailwindcss": "^4.1.5"
+  }
+}

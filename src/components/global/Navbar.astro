@@ -1,0 +1,88 @@
+---
+const currentPath = Astro.url.pathname;
+---
+
+<nav class="fixed top-0 left-0 right-0 z-50 backdrop-blur-md bg-white/80 border-b border-black/5 transition-all duration-300" id="navbar">
+  <div class="max-w-7xl mx-auto px-6 md:px-10 flex items-center justify-between h-16">
+    <!-- Logo -->
+    <a href="/" class="font-serif text-xl font-semibold tracking-tight text-text-primary hover:opacity-70 transition-opacity">
+      Yadi Guo
+    </a>
+
+    <!-- Desktop Nav -->
+    <div class="hidden md:flex items-center gap-8">
+      <a
+        href="/"
+        class:list={[
+          'text-sm font-medium transition-colors hover:text-text-primary',
+          currentPath === '/' ? 'text-text-primary' : 'text-text-secondary',
+        ]}
+      >
+        Home
+      </a>
+      <a
+        href="/project1"
+        class:list={[
+          'text-sm font-medium transition-colors hover:text-text-primary',
+          currentPath === '/project1' ? 'text-text-primary' : 'text-text-secondary',
+        ]}
+      >
+        Data Panel
+      </a>
+      <a
+        href="/project2"
+        class:list={[
+          'text-sm font-medium transition-colors hover:text-text-primary',
+          currentPath === '/project2' ? 'text-text-primary' : 'text-text-secondary',
+        ]}
+      >
+        Customer Service
+      </a>
+      <a
+        href="mailto:yudyguo@gmail.com"
+        class="text-sm font-medium text-surface-light bg-text-primary px-4 py-2 rounded-full hover:bg-surface-dark transition-colors"
+      >
+        Contact
+      </a>
+    </div>
+
+    <!-- Mobile Hamburger -->
+    <button class="md:hidden flex flex-col gap-1.5 p-2" id="mobile-toggle" aria-label="Toggle menu">
+      <span class="w-5 h-0.5 bg-text-primary transition-transform origin-center" id="bar1"></span>
+      <span class="w-5 h-0.5 bg-text-primary transition-opacity" id="bar2"></span>
+      <span class="w-5 h-0.5 bg-text-primary transition-transform origin-center" id="bar3"></span>
+    </button>
+  </div>
+
+  <!-- Mobile Menu -->
+  <div class="md:hidden overflow-hidden max-h-0 transition-all duration-300 ease-in-out" id="mobile-menu">
+    <div class="px-6 py-4 flex flex-col gap-4 border-t border-black/5">
+      <a href="/" class="text-base font-medium text-text-primary">Home</a>
+      <a href="/project1" class="text-base font-medium text-text-secondary">Data Panel</a>
+      <a href="/project2" class="text-base font-medium text-text-secondary">Customer Service</a>
+      <a href="mailto:yudyguo@gmail.com" class="text-base font-medium text-accent-green">Contact</a>
+    </div>
+  </div>
+</nav>
+
+<script>
+  document.addEventListener('astro:page-load', () => {
+    const toggle = document.getElementById('mobile-toggle');
+    const menu = document.getElementById('mobile-menu');
+    const bar1 = document.getElementById('bar1');
+    const bar2 = document.getElementById('bar2');
+    const bar3 = document.getElementById('bar3');
+
+    let isOpen = false;
+
+    toggle?.addEventListener('click', () => {
+      isOpen = !isOpen;
+      if (menu) {
+        menu.style.maxHeight = isOpen ? `${menu.scrollHeight}px` : '0';
+      }
+      if (bar1) bar1.style.transform = isOpen ? 'rotate(45deg) translateY(4px)' : '';
+      if (bar2) bar2.style.opacity = isOpen ? '0' : '1';
+      if (bar3) bar3.style.transform = isOpen ? 'rotate(-45deg) translateY(-4px)' : '';
+    });
+  });
+</script>

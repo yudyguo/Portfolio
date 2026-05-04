@@ -1,0 +1,65 @@
+---
+interface Props {
+  title: string;
+  subtitle: string;
+  role: string;
+  href: string;
+  image?: string;
+  index?: number;
+  bgColor?: string;
+}
+
+const {
+  title,
+  subtitle,
+  role,
+  href,
+  image,
+  index = 0,
+  bgColor = 'bg-surface-warm',
+} = Astro.props;
+---
+
+<a
+  href={href}
+  class:list={[
+    'group block rounded-2xl overflow-hidden transition-all duration-500 hover:shadow-2xl hover:-translate-y-2',
+    bgColor,
+  ]}
+>
+  <!-- Image area -->
+  <div class="relative aspect-[16/10] overflow-hidden">
+    {image ? (
+      <img
+        src={image}
+        alt={title}
+        class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
+        loading="eager"
+      />
+    ) : (
+      <div class="w-full h-full bg-gradient-to-br from-surface-warm to-surface-lavender flex items-center justify-center">
+        <span class="text-6xl font-serif text-text-muted/30">{index + 1}</span>
+      </div>
+    )}
+
+    <!-- Overlay on hover -->
+    <div class="absolute inset-0 bg-surface-dark/0 group-hover:bg-surface-dark/10 transition-colors duration-500"></div>
+  </div>
+
+  <!-- Text content -->
+  <div class="p-6 md:p-8">
+    <p class="text-xs uppercase tracking-widest text-text-muted mb-2">{role}</p>
+    <h3 class="font-serif text-xl md:text-2xl font-semibold text-text-primary mb-2 group-hover:text-accent-green transition-colors">
+      {title}
+    </h3>
+    <p class="text-text-secondary text-sm md:text-base">{subtitle}</p>
+
+    <!-- Arrow -->
+    <div class="mt-4 flex items-center gap-2 text-text-muted group-hover:text-accent-green transition-colors">
+      <span class="text-sm font-medium">View Case Study</span>
+      <svg class="w-4 h-4 transform group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3" />
+      </svg>
+    </div>
+  </div>
+</a>

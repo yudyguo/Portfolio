@@ -1,0 +1,125 @@
+---
+---
+
+<section class="py-20 md:py-32 bg-surface-light">
+  <div class="max-w-6xl mx-auto px-6 md:px-10">
+    <div class="mb-6" data-gsap="fade-up">
+      <p class="text-text-secondary text-xs uppercase tracking-widest mb-2">Design Thinking</p>
+      <h2 class="font-serif text-2xl md:text-4xl font-semibold text-text-primary">Data Focus</h2>
+    </div>
+
+    <div class="grid md:grid-cols-[2fr_1fr] gap-12 items-start mt-12">
+      <!-- Chart -->
+      <div class="relative aspect-square max-w-lg ml-10" data-gsap="fade-up" id="data-chart">
+        <!-- Y-axis line -->
+        <div class="absolute left-0 top-0 bottom-10 w-px bg-gradient-to-b from-text-muted/40 to-text-muted/10"></div>
+        <!-- Y-axis arrow -->
+        <div class="absolute -left-[3.5px] -top-1 w-0 h-0 border-l-[4px] border-r-[4px] border-b-[6px] border-l-transparent border-r-transparent border-b-text-muted/40"></div>
+
+        <!-- X-axis line -->
+        <div class="absolute left-0 bottom-10 right-0 h-px bg-gradient-to-r from-text-muted/10 to-text-muted/40"></div>
+        <!-- X-axis arrow -->
+        <div class="absolute -right-1 bottom-[36.5px] w-0 h-0 border-t-[4px] border-b-[4px] border-l-[6px] border-t-transparent border-b-transparent border-l-text-muted/40"></div>
+
+        <!-- Subtle grid -->
+        <div class="absolute left-0 right-0 top-[25%] h-px bg-text-muted/[0.06]"></div>
+        <div class="absolute left-0 right-0 top-[50%] h-px bg-text-muted/[0.06]"></div>
+        <div class="absolute top-0 bottom-10 left-[33%] w-px bg-text-muted/[0.06]"></div>
+        <div class="absolute top-0 bottom-10 left-[60%] w-px bg-text-muted/[0.06]"></div>
+
+        <!-- Y-axis label — rotated, left of axis -->
+        <span class="absolute -left-9 top-1/2 -translate-y-1/2 -rotate-90 text-[10px] font-medium tracking-widest uppercase text-text-secondary/60 whitespace-nowrap">Platform</span>
+        <!-- X-axis label — below axis -->
+        <span class="absolute bottom-0 right-0 text-[10px] font-medium tracking-widest uppercase text-text-secondary/60">Content</span>
+
+        <!-- High priority zone -->
+        <div class="absolute left-2 top-2 w-[48%] h-[48%] bg-accent-green/[0.04] border border-dashed border-accent-green/15 rounded-xl data-point" data-gsap="fade-up">
+          <span class="absolute top-2.5 right-3 text-[9px] font-medium tracking-wider uppercase text-accent-green/40">Focus</span>
+        </div>
+
+        <!-- Data points -->
+        <span class="absolute left-[14%] top-[18%] text-sm font-medium text-text-primary data-point">Followers</span>
+        <span class="absolute left-[30%] top-[12%] text-sm font-medium text-text-primary data-point">Reads</span>
+        <span class="absolute left-[38%] top-[20%] text-sm font-medium text-text-primary data-point">Posts</span>
+        <span class="absolute left-[24%] top-[33%] text-sm font-medium text-text-primary data-point">Shares</span>
+        <span class="absolute left-[10%] top-[28%] text-sm font-medium text-accent-green data-point">Your Originals</span>
+        <span class="absolute left-[52%] top-[28%] text-sm text-text-muted data-point">Support</span>
+        <span class="absolute left-[38%] top-[52%] text-sm text-text-muted data-point">Likes</span>
+        <span class="absolute left-[20%] top-[58%] text-sm text-text-muted data-point">Comments</span>
+        <span class="absolute left-[26%] top-[68%] text-sm text-text-muted data-point">Read by friends</span>
+        <span class="absolute left-[10%] top-[76%] text-sm text-text-muted data-point">Collects</span>
+      </div>
+
+      <!-- Key data summary table -->
+      <div class="bg-surface-warm rounded-2xl overflow-hidden" data-gsap="fade-up">
+        <table class="w-full text-left">
+          <thead>
+            <tr class="border-b border-black/5">
+              <th class="px-6 py-4 text-xs uppercase tracking-widest text-text-muted font-medium">Dimension</th>
+              <th class="px-6 py-4 text-xs uppercase tracking-widest text-text-muted font-medium">Key Metrics</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr class="border-b border-black/5 transition-colors hover:bg-black/[0.02]">
+              <td class="px-6 py-4">
+                <span class="inline-flex items-center gap-2 text-sm font-medium text-text-primary">
+                  <span class="w-2 h-2 rounded-full bg-accent-green"></span>
+                  Content
+                </span>
+              </td>
+              <td class="px-6 py-4">
+                <div class="flex flex-wrap gap-1.5">
+                  <span class="text-xs font-medium text-text-primary bg-black/[0.04] px-2.5 py-1 rounded-full">Followers</span>
+                  <span class="text-xs font-medium text-text-primary bg-black/[0.04] px-2.5 py-1 rounded-full">Reads</span>
+                  <span class="text-xs font-medium text-text-primary bg-black/[0.04] px-2.5 py-1 rounded-full">Shares</span>
+                </div>
+              </td>
+            </tr>
+            <tr class="transition-colors hover:bg-black/[0.02]">
+              <td class="px-6 py-4">
+                <span class="inline-flex items-center gap-2 text-sm font-medium text-text-primary">
+                  <span class="w-2 h-2 rounded-full bg-accent-green/50"></span>
+                  Platform
+                </span>
+              </td>
+              <td class="px-6 py-4">
+                <div class="flex flex-wrap gap-1.5">
+                  <span class="text-xs font-medium text-text-primary bg-black/[0.04] px-2.5 py-1 rounded-full">Posts</span>
+                  <span class="text-xs font-medium text-accent-green bg-accent-green/10 px-2.5 py-1 rounded-full">Your Originals</span>
+                </div>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+</section>
+
+<script>
+  import { gsap } from 'gsap';
+  import { ScrollTrigger } from 'gsap/ScrollTrigger';
+  gsap.registerPlugin(ScrollTrigger);
+
+  document.addEventListener('astro:page-load', () => {
+    const chart = document.getElementById('data-chart');
+    if (!chart) return;
+
+    const ctx = gsap.context(() => {
+      gsap.from('.data-point', {
+        scale: 0,
+        opacity: 0,
+        duration: 0.5,
+        ease: 'back.out(1.7)',
+        stagger: 0.08,
+        scrollTrigger: {
+          trigger: chart,
+          start: 'top 70%',
+          once: true,
+        },
+      });
+    });
+
+    document.addEventListener('astro:before-swap', () => ctx.revert(), { once: true });
+  });
+</script>

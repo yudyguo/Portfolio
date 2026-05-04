@@ -1,0 +1,85 @@
+---
+---
+
+<section class="bg-surface-dark py-20 md:py-32">
+  <div class="max-w-6xl mx-auto px-6 md:px-10">
+    <div class="mb-6" data-gsap="fade-up">
+      <div class="flex gap-6 mb-8">
+        <span class="text-text-muted text-sm">Library</span>
+        <span class="text-text-on-dark text-sm font-medium border-b border-text-on-dark pb-1">Optimization</span>
+      </div>
+    </div>
+
+    <div class="grid md:grid-cols-2 gap-12 md:gap-20 items-start">
+      <!-- Before -->
+      <div data-gsap="fade-up">
+        <p class="text-2xl md:text-4xl font-semibold text-text-on-dark mb-4">
+          48% are product inquiries
+        </p>
+        <div class="mt-8">
+          <p class="text-accent-green text-sm font-semibold uppercase tracking-wide mb-4">Before</p>
+          <ol class="space-y-3" id="before-steps">
+            <li class="text-text-on-dark text-lg font-medium before-step">Copy URL</li>
+            <li class="text-text-on-dark text-lg font-medium before-step">Come back to ChatBox</li>
+            <li class="text-text-on-dark text-lg font-medium before-step">Paste</li>
+            <li class="text-text-on-dark text-lg font-medium before-step">Typing some description</li>
+            <li class="text-text-on-dark text-lg font-medium before-step">Send</li>
+            <li class="text-text-on-dark text-lg font-medium before-step">Customer servicer open and check</li>
+            <li class="text-text-on-dark text-lg font-medium before-step">Understand the description</li>
+          </ol>
+        </div>
+      </div>
+
+      <!-- After -->
+      <div data-gsap="fade-up">
+        <p class="text-2xl md:text-4xl font-bold text-text-on-dark mb-4">
+          Purchase Rate <span class="text-accent-green">48%</span>
+          <span class="inline-block ml-1 text-accent-green">↑</span>
+        </p>
+        <div class="mt-8">
+          <p class="text-accent-green text-sm font-semibold uppercase tracking-wide mb-4">After</p>
+          <p class="text-text-on-dark text-xl font-medium">
+            Send a rich Content Card
+          </p>
+          <div class="mt-6 bg-white/10 rounded-xl p-6 backdrop-blur-sm">
+            <div class="flex items-center gap-3">
+              <div class="w-16 h-16 rounded-lg bg-surface-lavender/20 flex items-center justify-center text-2xl">🛍️</div>
+              <div>
+                <p class="text-text-on-dark font-medium">Product Card</p>
+                <p class="text-text-muted text-sm">Rich content with image, title, price</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<script>
+  import { gsap } from 'gsap';
+  import { ScrollTrigger } from 'gsap/ScrollTrigger';
+  gsap.registerPlugin(ScrollTrigger);
+
+  document.addEventListener('astro:page-load', () => {
+    const steps = document.querySelectorAll('.before-step');
+    if (steps.length === 0) return;
+
+    const ctx = gsap.context(() => {
+      gsap.from(steps, {
+        x: -30,
+        opacity: 0,
+        duration: 0.5,
+        stagger: 0.1,
+        ease: 'power2.out',
+        scrollTrigger: {
+          trigger: '#before-steps',
+          start: 'top 80%',
+          once: true,
+        },
+      });
+    });
+
+    document.addEventListener('astro:before-swap', () => ctx.revert(), { once: true });
+  });
+</script>

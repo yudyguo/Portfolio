@@ -1,0 +1,132 @@
+---
+---
+
+<section class="bg-surface-darker py-20 md:py-32">
+  <div class="max-w-6xl mx-auto px-6 md:px-10">
+    <div class="mb-6" data-gsap="fade-up">
+      <div class="flex gap-6 mb-4">
+        <span class="text-text-muted text-sm">Library</span>
+        <span class="text-text-on-dark text-sm font-medium border-b border-text-on-dark pb-1">Optimization</span>
+      </div>
+      <h2 class="font-serif text-2xl md:text-3xl font-semibold text-text-on-dark mb-2">
+        Intuitive Adding
+      </h2>
+      <p class="text-text-muted text-lg">
+        Customer service can add mini program cards sent by users and editing.
+      </p>
+    </div>
+
+    <div class="grid md:grid-cols-[1fr_2fr] gap-12 mt-12">
+      <!-- Stats -->
+      <div data-gsap="fade-up">
+        <p class="text-text-muted text-sm mb-6">User inquiry method statistics</p>
+        <div class="space-y-4">
+          <div>
+            <div class="flex justify-between text-sm mb-1">
+              <span class="text-text-on-dark">Text</span>
+              <span class="text-text-muted">12%</span>
+            </div>
+            <div class="h-2 bg-white/10 rounded-full overflow-hidden">
+              <div class="h-full bg-text-muted/60 rounded-full inquiry-bar" style="width: 0%" data-target="12"></div>
+            </div>
+          </div>
+          <div>
+            <div class="flex justify-between text-sm mb-1">
+              <span class="text-text-on-dark">Image</span>
+              <span class="text-text-muted">23%</span>
+            </div>
+            <div class="h-2 bg-white/10 rounded-full overflow-hidden">
+              <div class="h-full bg-text-muted/60 rounded-full inquiry-bar" style="width: 0%" data-target="23"></div>
+            </div>
+          </div>
+          <div>
+            <div class="flex justify-between text-sm mb-1">
+              <span class="text-text-on-dark font-semibold">Cards</span>
+              <span class="text-accent-green font-semibold">65%</span>
+            </div>
+            <div class="h-2 bg-white/10 rounded-full overflow-hidden">
+              <div class="h-full bg-accent-green rounded-full inquiry-bar" style="width: 0%" data-target="65"></div>
+            </div>
+          </div>
+        </div>
+
+        <div class="mt-8 text-right" data-gsap="fade-up">
+          <p class="text-text-on-dark text-lg">Purchase Rate <span class="text-accent-red font-bold text-2xl">48%</span></p>
+        </div>
+      </div>
+
+      <!-- User flow grid -->
+      <div data-gsap="fade-up">
+        <div class="grid grid-cols-3 gap-4 text-center mb-4">
+          <p class="text-text-muted text-sm">User1</p>
+          <p class="text-text-muted text-sm">User2</p>
+          <p class="text-text-muted text-sm">User3</p>
+        </div>
+        <div class="grid grid-cols-3 gap-3" data-gsap="stagger-children">
+          <div class="bg-white/10 rounded-lg p-3 text-center text-text-on-dark text-sm">ASR</div>
+          <div class="bg-white/10 rounded-lg p-3 text-center text-text-on-dark text-sm">ItemA</div>
+          <div class="bg-white/10 rounded-lg p-3 text-center text-text-on-dark text-sm">ItemA</div>
+
+          <div class="bg-white/10 rounded-lg p-3 text-center text-text-on-dark text-sm">ItemA</div>
+          <div class="bg-white/10 rounded-lg p-3 text-center text-text-on-dark text-sm">ItemC</div>
+          <div class="bg-white/10 rounded-lg p-3 text-center text-accent-red text-sm">Complaint</div>
+
+          <div class="bg-white/10 rounded-lg p-3 text-center text-text-on-dark text-sm">ItemB</div>
+          <div class="bg-white/10 rounded-lg p-3 text-center text-text-on-dark text-sm">ItemX</div>
+          <div class="bg-white/10 rounded-lg p-3 text-center text-text-on-dark text-sm">Order</div>
+
+          <div class="text-text-muted text-center">…</div>
+          <div class="text-text-muted text-center">…</div>
+          <div class="text-text-muted text-center">…</div>
+        </div>
+
+        <!-- Arrow to product card -->
+        <div class="flex items-center justify-center my-6">
+          <svg class="w-8 h-8 text-accent-green" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 14l-7 7m0 0l-7-7m7 7V3" />
+          </svg>
+        </div>
+
+        <!-- Product card result -->
+        <div class="bg-white/10 backdrop-blur-sm rounded-xl p-5 max-w-xs mx-auto" data-gsap="fade-up">
+          <div class="flex items-center justify-between mb-2">
+            <span class="bg-accent-green text-white text-xs px-2 py-1 rounded">ProductA</span>
+            <span class="text-text-muted text-xs">+ Add as quick reply</span>
+          </div>
+          <div class="bg-white/5 rounded-lg aspect-[4/3] flex items-center justify-center">
+            <span class="text-3xl">📦</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<script>
+  import { gsap } from 'gsap';
+  import { ScrollTrigger } from 'gsap/ScrollTrigger';
+  gsap.registerPlugin(ScrollTrigger);
+
+  document.addEventListener('astro:page-load', () => {
+    const bars = document.querySelectorAll('.inquiry-bar');
+    if (bars.length === 0) return;
+
+    const ctx = gsap.context(() => {
+      bars.forEach((bar) => {
+        const target = (bar as HTMLElement).dataset.target || '0';
+        gsap.to(bar, {
+          width: `${target}%`,
+          duration: 1,
+          ease: 'power2.out',
+          scrollTrigger: {
+            trigger: bar.closest('section'),
+            start: 'top 75%',
+            once: true,
+          },
+        });
+      });
+    });
+
+    document.addEventListener('astro:before-swap', () => ctx.revert(), { once: true });
+  });
+</script>

@@ -1,0 +1,39 @@
+---
+interface Props {
+  label?: string;
+  title: string;
+  variant?: 'light' | 'dark';
+  class?: string;
+}
+
+const {
+  label,
+  title,
+  variant = 'light',
+  class: className = '',
+} = Astro.props;
+
+const isDark = variant === 'dark';
+---
+
+<div class:list={['mb-10 md:mb-14', className]} data-gsap="fade-up">
+  {label && (
+    <p class:list={[
+      'text-xs uppercase tracking-widest mb-2',
+      isDark ? 'text-text-muted' : 'text-text-secondary',
+    ]}>{label}</p>
+  )}
+  <h2 class:list={[
+    'font-serif text-2xl md:text-4xl font-semibold',
+    isDark ? 'text-text-on-dark' : 'text-text-primary',
+  ]}>
+    {title}
+  </h2>
+  <div
+    class:list={[
+      'mt-4 h-px w-16',
+      isDark ? 'bg-white/20' : 'bg-black/10',
+    ]}
+    data-gsap="draw-line"
+  ></div>
+</div>

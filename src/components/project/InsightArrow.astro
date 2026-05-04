@@ -1,0 +1,43 @@
+---
+---
+
+<section class="bg-surface-dark py-20 md:py-32 overflow-hidden relative">
+  <!-- Glow blob behind the arrow -->
+  <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-32 h-32 rounded-full bg-[radial-gradient(circle,_#F6D365_0%,_transparent_70%)] blur-[40px] opacity-60" aria-hidden="true"></div>
+
+  <div class="max-w-5xl mx-auto px-6 md:px-10">
+    <p class="text-text-muted text-xs uppercase tracking-widest mb-12" data-gsap="fade-up">Background</p>
+
+    <div class="grid md:grid-cols-[1fr_auto_1fr] gap-8 md:gap-6 items-center">
+      <!-- Left: Problem -->
+      <div data-gsap="fade-up">
+        <p class="text-text-on-dark text-lg md:text-2xl leading-relaxed">
+          The Landing Page has not been updated in more than <strong class="text-text-on-dark">5 years</strong>.
+        </p>
+      </div>
+
+      <!-- Center: Arrow -->
+      <div class="flex flex-col items-center gap-2 relative" data-gsap="fade-up">
+        <span class="text-text-muted text-xs tracking-wide">Find Insight</span>
+        <svg class="w-24 md:w-40 h-8" viewBox="0 0 160 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <line x1="0" y1="16" x2="140" y2="16" stroke="#F9FAFB" stroke-width="1" stroke-dasharray="4 4" data-gsap="draw-line" />
+          <polygon points="140,10 160,16 140,22" fill="#F9FAFB" />
+        </svg>
+      </div>
+
+      <!-- Right: Insight -->
+      <div data-gsap="fade-up">
+        <p class="text-text-on-dark text-lg md:text-2xl leading-relaxed">
+          Most logins last <strong class="text-accent-gold">20s~40s</strong>, then go to data tab.
+        </p>
+      </div>
+    </div>
+
+    <!-- Key Data call-out -->
+    <div class="mt-16 text-center" data-gsap="fade-up">
+      <p class="text-text-on-dark text-xl md:text-2xl">
+        Prioritize the <span class="text-accent-gold font-semibold">Key Data</span> shows in the Home page.
+      </p>
+    </div>
+  </div>
+</section>

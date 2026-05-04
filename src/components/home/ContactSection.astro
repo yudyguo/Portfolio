@@ -1,0 +1,30 @@
+---
+import GradientBlob from '../global/GradientBlob.astro';
+---
+
+<section class="relative py-24 md:py-32 overflow-hidden" id="contact">
+  <GradientBlob color="yellow" size="lg" class="top-[-10%] right-[10%]" parallaxSpeed={0.8} />
+  <GradientBlob color="lavender" size="md" class="bottom-[-5%] left-[15%]" parallaxSpeed={1.1} />
+
+  <div class="max-w-7xl mx-auto px-6 md:px-10 relative z-10">
+    <div class="text-center max-w-2xl mx-auto" data-gsap="fade-up">
+      <p class="text-xs uppercase tracking-widest text-text-muted mb-4">Get in Touch</p>
+      <h2 class="font-serif text-3xl md:text-5xl font-semibold text-text-primary mb-6">
+        Let's work together
+      </h2>
+      <p class="text-text-secondary text-lg mb-8">
+        I'm always interested in new opportunities and collaborations.
+        Feel free to reach out.
+      </p>
+      <a
+        href="mailto:yudyguo@gmail.com"
+        class="inline-flex items-center gap-2 bg-text-primary text-surface-light px-8 py-4 rounded-full text-base font-medium hover:bg-surface-dark transition-colors"
+      >
+        <span>yudyguo@gmail.com</span>
+        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3" />
+        </svg>
+      </a>
+    </div>
+  </div>
+</section>

@@ -1,0 +1,88 @@
+---
+---
+
+<section class="py-20 md:py-32 bg-surface-light">
+  <div class="max-w-5xl mx-auto px-6 md:px-10">
+    <div class="mb-6" data-gsap="fade-up">
+      <p class="text-text-secondary text-xs uppercase tracking-widest mb-2">Design Thinking</p>
+      <p class="text-text-primary text-lg">
+        <strong>Summarize</strong>&nbsp; Posts, Fans, Reads, Likes, Shares, Compliments, Collects, Interactions and Comments…
+      </p>
+    </div>
+
+    <!-- Diagram -->
+    <div class="relative mt-16 md:mt-24" id="ecosystem-diagram">
+      <svg viewBox="0 0 800 400" class="w-full max-w-3xl mx-auto" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <!-- Account Owner Circle -->
+        <circle cx="150" cy="150" r="70" fill="#F0F0F0" class="ecosystem-node" />
+        <text x="150" y="145" text-anchor="middle" font-size="16" fill="#07C160" font-weight="500" class="font-sans">Account</text>
+        <text x="150" y="168" text-anchor="middle" font-size="16" fill="#07C160" font-weight="500" class="font-sans">owner</text>
+
+        <!-- Data/User Circles -->
+        <circle cx="600" cy="150" r="70" fill="#F0F0F0" class="ecosystem-node" />
+        <text x="600" y="155" text-anchor="middle" font-size="16" fill="#6B7280" font-weight="500" class="font-sans">Data</text>
+        <circle cx="680" cy="150" r="60" fill="none" stroke="#D1D5DB" stroke-width="1.5" stroke-dasharray="4 4" class="ecosystem-node" />
+        <text x="700" y="155" text-anchor="middle" font-size="14" fill="#EF4444" font-weight="400" class="font-sans">User</text>
+
+        <!-- Arrows between Account Owner and Data -->
+        <line x1="230" y1="130" x2="520" y2="130" stroke="#1A1A1A" stroke-width="1" class="ecosystem-arrow" />
+        <polygon points="520,126 530,130 520,134" fill="#1A1A1A" />
+        <text x="375" y="120" text-anchor="middle" font-size="13" fill="#6B7280" class="font-sans">Output quality content</text>
+
+        <line x1="520" y1="170" x2="230" y2="170" stroke="#1A1A1A" stroke-width="1" class="ecosystem-arrow" />
+        <polygon points="230,166 220,170 230,174" fill="#1A1A1A" />
+        <text x="375" y="190" text-anchor="middle" font-size="13" fill="#9CA3AF" class="font-sans">Positive feedback</text>
+
+        <!-- Platform Circle -->
+        <circle cx="400" cy="340" r="55" fill="#F0F0F0" class="ecosystem-node" />
+        <text x="400" y="345" text-anchor="middle" font-size="16" fill="#C4B5FD" font-weight="500" class="font-sans">Platform</text>
+
+        <!-- Vertical arrows -->
+        <line x1="170" y1="230" x2="350" y2="300" stroke="#1A1A1A" stroke-width="1" class="ecosystem-arrow" />
+        <text x="220" y="290" text-anchor="middle" font-size="12" fill="#6B7280" class="font-sans">Guidance and Balances</text>
+
+        <line x1="450" y1="300" x2="600" y2="230" stroke="#1A1A1A" stroke-width="1" class="ecosystem-arrow" />
+        <text x="560" y="290" text-anchor="middle" font-size="12" fill="#6B7280" class="font-sans">Provide quality services</text>
+      </svg>
+    </div>
+  </div>
+</section>
+
+<script>
+  import { gsap } from 'gsap';
+  import { ScrollTrigger } from 'gsap/ScrollTrigger';
+  gsap.registerPlugin(ScrollTrigger);
+
+  document.addEventListener('astro:page-load', () => {
+    const diagram = document.getElementById('ecosystem-diagram');
+    if (!diagram) return;
+
+    const ctx = gsap.context(() => {
+      const tl = gsap.timeline({
+        scrollTrigger: {
+          trigger: diagram,
+          start: 'top 75%',
+          once: true,
+        },
+      });
+
+      tl.from('.ecosystem-node', {
+        scale: 0,
+        opacity: 0,
+        duration: 0.6,
+        ease: 'back.out(1.7)',
+        stagger: 0.15,
+        transformOrigin: 'center center',
+      })
+      .from('.ecosystem-arrow', {
+        scaleX: 0,
+        opacity: 0,
+        duration: 0.5,
+        stagger: 0.1,
+        transformOrigin: 'left center',
+      }, '-=0.3');
+    });
+
+    document.addEventListener('astro:before-swap', () => ctx.revert(), { once: true });
+  });
+</script>

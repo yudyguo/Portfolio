@@ -1,0 +1,244 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import Navbar from '../components/global/Navbar.astro';
+import Footer from '../components/global/Footer.astro';
+import ProjectHero from '../components/project/ProjectHero.astro';
+import SectionHeading from '../components/project/SectionHeading.astro';
+import BeforeAfter from '../components/project/BeforeAfter.astro';
+import CardStructure from '../components/project/CardStructure.astro';
+import UserFlowDiagram from '../components/project/UserFlowDiagram.astro';
+import DashboardShowcase from '../components/project/DashboardShowcase.astro';
+import ImageFrame from '../components/ui/ImageFrame.astro';
+import '../styles/global.css';
+---
+
+<BaseLayout title="WeChat Customer Service System — Yadi Guo">
+  <Navbar />
+
+  <main>
+    <!-- Hero -->
+    <ProjectHero
+      title="WeChat Customer Service System"
+      platform="WeChat Customer Service"
+      platformDescription="A tool that enables businesses to manage and respond to user inquiries directly within the WeChat ecosystem."
+      role="Developed a design system to support scalable, cross-team collaboration."
+      image="/images/project2/cover.jpg"
+      imageAlt="Customer service team working in a modern office"
+    />
+
+    <!-- WeChatOS Context -->
+    <section class="bg-surface-dark py-20 md:py-32">
+      <div class="max-w-7xl mx-auto px-6 md:px-10">
+        <p class="text-text-muted text-xs uppercase tracking-widest mb-12" data-gsap="fade-up">WeChatOS</p>
+
+        <div class="grid grid-cols-2 md:grid-cols-4 gap-5 md:gap-6" data-gsap="stagger-children">
+          <div class="group rounded-2xl border border-white/10 bg-white/[0.03] backdrop-blur-sm p-6 text-center transition-all duration-300 hover:bg-white/[0.07] hover:border-white/20 hover:shadow-lg hover:shadow-white/5 hover:-translate-y-1">
+            <span class="text-3xl mb-4 block">💬</span>
+            <h3 class="text-text-on-dark text-base md:text-lg font-semibold tracking-tight">IM</h3>
+            <p class="text-text-muted text-xs mt-1.5 tracking-wide uppercase">Social</p>
+          </div>
+          <div class="group rounded-2xl border border-white/10 bg-white/[0.03] backdrop-blur-sm p-6 text-center transition-all duration-300 hover:bg-white/[0.07] hover:border-white/20 hover:shadow-lg hover:shadow-white/5 hover:-translate-y-1">
+            <span class="text-3xl mb-4 block">📰</span>
+            <h3 class="text-text-on-dark text-base md:text-lg font-semibold tracking-tight">Official Account</h3>
+            <p class="text-text-muted text-xs mt-1.5 tracking-wide uppercase">News</p>
+          </div>
+          <div class="group rounded-2xl border border-white/10 bg-white/[0.03] backdrop-blur-sm p-6 text-center transition-all duration-300 hover:bg-white/[0.07] hover:border-white/20 hover:shadow-lg hover:shadow-white/5 hover:-translate-y-1">
+            <span class="text-3xl mb-4 block">📱</span>
+            <h3 class="text-text-on-dark text-base md:text-lg font-semibold tracking-tight">MiniProgram</h3>
+            <p class="text-text-muted text-xs mt-1.5 tracking-wide uppercase">Entertainment</p>
+          </div>
+          <div class="group rounded-2xl border border-white/10 bg-white/[0.03] backdrop-blur-sm p-6 text-center transition-all duration-300 hover:bg-white/[0.07] hover:border-white/20 hover:shadow-lg hover:shadow-white/5 hover:-translate-y-1">
+            <span class="text-3xl mb-4 block">💳</span>
+            <h3 class="text-text-on-dark text-base md:text-lg font-semibold tracking-tight">Payment</h3>
+            <p class="text-text-muted text-xs mt-1.5 tracking-wide uppercase">Wallet</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Problems -->
+    <section class="bg-surface-darker py-20 md:py-32">
+      <div class="max-w-7xl mx-auto px-6 md:px-10">
+        <p class="text-text-muted text-xs uppercase tracking-widest mb-12" data-gsap="fade-up">Customer Service System</p>
+
+        <div class="grid md:grid-cols-3 gap-8 md:gap-12" data-gsap="stagger-children">
+          <div>
+            <h3 class="text-text-on-dark text-xl md:text-2xl font-bold leading-snug">
+              inconsistent cross-platform experiences
+            </h3>
+          </div>
+          <div>
+            <h3 class="text-text-on-dark text-xl md:text-2xl font-bold leading-snug">
+              features lagging behind business demands
+            </h3>
+          </div>
+          <div>
+            <h3 class="text-text-on-dark text-xl md:text-2xl font-bold leading-snug">
+              Unify Customer Service System
+            </h3>
+          </div>
+        </div>
+
+        <!-- Problem screenshots -->
+        <div class="mt-12 space-y-6" data-gsap="stagger-children">
+          <!-- PC panel — constrained width -->
+          <div class="max-w-3xl mx-auto rounded-2xl overflow-hidden shadow-xl bg-surface-dark/50 ring-1 ring-white/5">
+            <img src="/images/project2/pic4.png" alt="Inconsistent experience" class="w-full h-auto" loading="lazy" />
+            <span class="text-text-muted text-xs px-5 py-3 text-center block">Inconsistent experience</span>
+          </div>
+          <!-- Mobile variants — 3-up row -->
+          <div class="grid grid-cols-3 gap-4 md:gap-6 max-w-4xl mx-auto">
+            <div class="rounded-2xl overflow-hidden shadow-xl bg-surface-dark/50 ring-1 ring-white/5">
+              <img src="/images/project2/pic1.png" alt="Lagging behind business demands" class="w-full h-auto" loading="lazy" />
+              <span class="text-text-muted text-xs px-4 py-3 text-center block">Lagging behind business demands</span>
+            </div>
+            <div class="rounded-2xl overflow-hidden shadow-xl bg-surface-dark/50 ring-1 ring-white/5">
+              <img src="/images/project2/pic2.png" alt="Inconvenient user experience" class="w-full h-auto" loading="lazy" />
+              <span class="text-text-muted text-xs px-4 py-3 text-center block">Inconvenient user experience</span>
+            </div>
+            <div class="rounded-2xl overflow-hidden shadow-xl bg-surface-dark/50 ring-1 ring-white/5">
+              <img src="/images/project2/pic3.png" alt="Ununiform system" class="w-full h-auto" loading="lazy" />
+              <span class="text-text-muted text-xs px-4 py-3 text-center block">Ununiform system</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Component Library -->
+    <section class="py-20 md:py-32 bg-surface-light">
+      <div class="max-w-7xl mx-auto px-6 md:px-10">
+        <div class="flex gap-6 mb-8" data-gsap="fade-up">
+          <span class="text-text-primary text-sm font-medium border-b border-text-primary pb-1">Library</span>
+          <span class="text-text-secondary text-sm">Optimization</span>
+        </div>
+
+        <h2 class="font-serif text-2xl md:text-4xl font-semibold text-text-primary mb-12" data-gsap="fade-up">
+          Component Abstraction
+        </h2>
+
+        <div class="grid md:grid-cols-2 gap-12">
+          <!-- Hierarchy diagram -->
+          <div data-gsap="fade-up">
+            <div class="grid grid-cols-3 gap-4 text-center mb-6">
+              <div class="text-text-primary font-medium">Function</div>
+              <div class="text-text-primary font-medium">Application</div>
+              <div class="text-text-primary font-medium">Date</div>
+            </div>
+            <div class="flex justify-center mb-6">
+              <svg class="w-full max-w-sm h-16" viewBox="0 0 300 60">
+                <line x1="50" y1="0" x2="50" y2="30" stroke="#D1D5DB" stroke-width="1" />
+                <line x1="150" y1="0" x2="150" y2="30" stroke="#D1D5DB" stroke-width="1" />
+                <line x1="250" y1="0" x2="250" y2="30" stroke="#D1D5DB" stroke-width="1" />
+                <line x1="50" y1="30" x2="250" y2="30" stroke="#D1D5DB" stroke-width="1" />
+                <line x1="150" y1="30" x2="150" y2="60" stroke="#D1D5DB" stroke-width="1" />
+              </svg>
+            </div>
+            <div class="grid grid-cols-3 gap-4 text-center">
+              <div class="text-text-secondary">Post Infos</div>
+              <div class="text-text-secondary">Shopping</div>
+              <div class="text-text-secondary">Reminder</div>
+            </div>
+
+            <div class="mt-8" data-gsap="fade-up">
+              <p class="text-text-secondary text-sm">Component types:</p>
+              <p class="text-text-primary mt-2">Dialog, Popover, Drop down…</p>
+            </div>
+          </div>
+
+          <!-- Popover examples -->
+          <div data-gsap="fade-up">
+            <div class="rounded-xl overflow-hidden">
+              <img src="/images/project2/popover.png" alt="Popover component examples" class="w-full h-auto" loading="lazy" />
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Scenario-based optimization -->
+    <section class="py-20 md:py-32 bg-surface-warm">
+      <div class="max-w-7xl mx-auto px-6 md:px-10">
+        <div class="flex gap-6 mb-8" data-gsap="fade-up">
+          <span class="text-text-primary text-sm font-medium border-b border-text-primary pb-1">Library</span>
+          <span class="text-text-secondary text-sm">Optimization</span>
+        </div>
+
+        <h2 class="font-serif text-2xl md:text-4xl font-semibold text-text-primary mb-12" data-gsap="fade-up">
+          Scenario-based product optimization
+        </h2>
+
+        <div class="grid md:grid-cols-2 gap-12">
+          <!-- Matrix -->
+          <div class="space-y-6" data-gsap="fade-up">
+            <div class="flex items-center gap-4 py-4 border-b border-black/5">
+              <span class="font-medium text-text-primary w-24">Platform</span>
+              <span class="text-text-muted">PC、Mobile</span>
+              <span class="ml-auto text-text-secondary font-medium">Features</span>
+            </div>
+            <div class="flex items-center gap-4 py-4 border-b border-black/5">
+              <span class="font-medium text-text-primary w-24">Role</span>
+              <span class="text-text-muted">Manager、Customer</span>
+              <span class="ml-auto text-text-secondary font-medium">Authorization</span>
+            </div>
+            <div class="flex items-center gap-4 py-4 border-b border-black/5">
+              <span class="font-medium text-text-primary w-24">Function</span>
+              <span class="text-text-muted">Q&A、Data…</span>
+              <span class="ml-auto text-text-secondary font-medium">Personalize</span>
+            </div>
+          </div>
+
+          <!-- Dashboard metrics preview -->
+          <div class="space-y-6" data-gsap="fade-up">
+            <!-- PC metrics -->
+            <div class="bg-white rounded-xl p-5 shadow-sm">
+              <p class="text-xs text-text-muted mb-3">PC Dashboard</p>
+              <div class="grid grid-cols-5 gap-3 text-center">
+                <div><p class="text-xs text-text-muted">Sessions</p><p class="text-lg font-bold" data-counter="142">0</p></div>
+                <div><p class="text-xs text-text-muted">Users</p><p class="text-lg font-bold" data-counter="36">0</p></div>
+                <div><p class="text-xs text-text-muted">Response</p><p class="text-lg font-bold" data-counter="86" data-counter-suffix="%">0%</p></div>
+                <div><p class="text-xs text-text-muted">Avg Time</p><p class="text-lg font-bold">10<span class="text-xs text-text-muted">min</span></p></div>
+                <div><p class="text-xs text-text-muted">15-min</p><p class="text-lg font-bold" data-counter="90" data-counter-suffix="%">0%</p></div>
+              </div>
+            </div>
+            <!-- Mobile metrics -->
+            <div class="bg-white rounded-xl p-5 shadow-sm">
+              <p class="text-xs text-text-muted mb-3">Mobile Dashboard</p>
+              <div class="grid grid-cols-3 gap-3 text-center">
+                <div><p class="text-xs text-text-muted">Sessions</p><p class="text-lg font-bold" data-counter="134">0</p></div>
+                <div><p class="text-xs text-text-muted">Users</p><p class="text-lg font-bold" data-counter="134">0</p></div>
+                <div><p class="text-xs text-text-muted">Response</p><p class="text-lg font-bold">5.37%</p></div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Product Inquiry: Before/After -->
+    <BeforeAfter />
+
+    <!-- Mini Program Card Structure -->
+    <CardStructure />
+
+    <!-- Intuitive Adding / User Flow -->
+    <UserFlowDiagram />
+
+    <!-- Dashboard Results -->
+    <DashboardShowcase />
+
+    <!-- Next project CTA -->
+    <section class="py-20 bg-surface-warm">
+      <div class="max-w-4xl mx-auto px-6 md:px-10 text-center" data-gsap="fade-up">
+        <p class="text-text-secondary text-sm mb-3">Back to</p>
+        <a href="/" class="group inline-block">
+          <h2 class="font-serif text-2xl md:text-4xl font-semibold text-text-primary group-hover:text-accent-green transition-colors">
+            ← All Projects
+          </h2>
+        </a>
+      </div>
+    </section>
+  </main>
+
+  <Footer />
+</BaseLayout>

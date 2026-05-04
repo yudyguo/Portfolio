@@ -1,0 +1,87 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import Navbar from '../components/global/Navbar.astro';
+import Footer from '../components/global/Footer.astro';
+import ProjectHero from '../components/project/ProjectHero.astro';
+import InsightArrow from '../components/project/InsightArrow.astro';
+import PersonaTable from '../components/project/PersonaTable.astro';
+import EcosystemDiagram from '../components/project/EcosystemDiagram.astro';
+import DataFocusChart from '../components/project/DataFocusChart.astro';
+import MetricCounter from '../components/project/MetricCounter.astro';
+import ImageFrame from '../components/ui/ImageFrame.astro';
+import '../styles/global.css';
+---
+
+<BaseLayout title="WeChat Official Accounts Data Panel — Yadi Guo">
+  <Navbar />
+
+  <main>
+    <!-- Hero -->
+    <ProjectHero
+      title="Design Landing page data panel of WeChat Official Accounts"
+      platform="WeChat Official Account"
+      platformDescription="A platform for publishing content and providing services within the WeChat app."
+      role="Abstract core data from user research, focusing on potential user needs."
+      image="/images/project1/cover.jpg"
+      imageAlt="WeChat Official Account landing page redesign shown on iMac"
+    />
+
+    <!-- Background & Insight -->
+    <InsightArrow />
+
+    <!-- User Research: Personas -->
+    <PersonaTable />
+
+    <!-- Design Thinking: Ecosystem -->
+    <EcosystemDiagram />
+
+    <!-- Data Focus Chart -->
+    <DataFocusChart />
+
+    <!-- Feedback Verification / Final Design -->
+    <section class="py-20 md:py-32 bg-surface-light">
+      <div class="max-w-6xl mx-auto px-6 md:px-10">
+        <div class="mb-6" data-gsap="fade-up">
+          <p class="text-text-secondary text-xs uppercase tracking-widest mb-2">Design Thinking</p>
+          <h2 class="font-serif text-2xl md:text-4xl font-semibold text-text-primary">Feedback verification</h2>
+        </div>
+
+        <!-- Key Metrics -->
+        <div class="grid grid-cols-3 gap-6 md:gap-12 mt-12 mb-12" data-gsap="stagger-children">
+          <MetricCounter value={678} label="Yesterday's Reads" />
+          <MetricCounter value={346} label="Yesterday's Shares" />
+          <MetricCounter value={123} label="Yesterday's New Followers" />
+        </div>
+
+        <!-- Additional Stats -->
+        <div class="grid grid-cols-2 gap-6 md:gap-12 mb-16 max-w-md mx-auto" data-gsap="stagger-children">
+          <MetricCounter value={3485} label="Original Content" size="sm" />
+          <MetricCounter value={5469237} label="Total Users" size="sm" />
+        </div>
+
+        <!-- Final UI Screenshot -->
+        <ImageFrame
+          src="/images/project1/MP.png"
+          alt="Final redesigned WeChat Official Account landing page with key data metrics"
+          caption="Final landing page design with prioritized key data"
+          class="max-w-4xl mx-auto"
+          aspect=""
+        />
+      </div>
+    </section>
+
+    <!-- Next project CTA -->
+    <section class="py-20 bg-surface-warm">
+      <div class="max-w-4xl mx-auto px-6 md:px-10 text-center" data-gsap="fade-up">
+        <p class="text-text-secondary text-sm mb-3">Next Project</p>
+        <a href="/project2" class="group inline-block">
+          <h2 class="font-serif text-2xl md:text-4xl font-semibold text-text-primary group-hover:text-accent-green transition-colors">
+            WeChat Customer Service System →
+          </h2>
+        </a>
+      </div>
+    </section>
+  </main>
+
+  <Footer />
+</BaseLayout>

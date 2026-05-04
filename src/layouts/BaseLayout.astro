@@ -1,0 +1,208 @@
+---
+import { ClientRouter } from 'astro:transitions';
+
+interface Props {
+  title?: string;
+  description?: string;
+}
+
+const {
+  title = 'Yadi Guo — UX Designer Portfolio',
+  description = 'Portfolio of Yadi Guo, UX Designer specializing in WeChat ecosystem design, data-driven interfaces, and cross-platform design systems.',
+} = Astro.props;
+---
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content={description} />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400&display=swap"
+      rel="stylesheet"
+    />
+    <title>{title}</title>
+    <ClientRouter />
+  </head>
+  <body class="min-h-screen">
+    <!-- Page transition overlay -->
+    <div class="page-transition-overlay" id="page-transition"></div>
+
+    <slot />
+
+    <!-- GSAP initialization -->
+    <script>
+      import { gsap } from 'gsap';
+      import { ScrollTrigger } from 'gsap/ScrollTrigger';
+
+      gsap.registerPlugin(ScrollTrigger);
+
+      // Re-init on every page load (View Transitions compatible)
+      document.addEventListener('astro:page-load', () => {
+        // Scroll to top on navigation
+        window.scrollTo(0, 0);
+
+        const ctx = gsap.context(() => {
+          // ====== Batch fade-in-up animations ======
+          ScrollTrigger.batch('[data-gsap="fade-up"]', {
+            onEnter: (elements) => {
+              gsap.fromTo(elements,
+                { y: 40, opacity: 0 },
+                {
+                  y: 0,
+                  opacity: 1,
+                  duration: 0.8,
+                  ease: 'power3.out',
+                  stagger: 0.1,
+                  clearProps: 'opacity,transform',
+                },
+              );
+            },
+            start: 'top 88%',
+            once: true,
+          });
+
+          // ====== Staggered children reveal ======
+          document.querySelectorAll('[data-gsap="stagger-children"]').forEach((parent) => {
+            const children = parent.children;
+            gsap.fromTo(children,
+              { y: 60, opacity: 0 },
+              {
+                y: 0,
+                opacity: 1,
+                duration: 0.8,
+                ease: 'power3.out',
+                stagger: 0.15,
+                clearProps: 'opacity,transform',
+                scrollTrigger: {
+                  trigger: parent,
+                  start: 'top 85%',
+                  once: true,
+                },
+              },
+            );
+          });
+
+          // ====== Blob parallax ======
+          const prefersReduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+          const isMobile = window.innerWidth < 768;
+
+          if (!prefersReduced && !isMobile) {
+            document.querySelectorAll('[data-parallax]').forEach((blob) => {
+              const speed = parseFloat((blob as HTMLElement).dataset.parallax || '1');
+              gsap.to(blob, {
+                y: -80 * speed,
+                ease: 'none',
+                scrollTrigger: {
+                  trigger: blob.parentElement,
+                  start: 'top bottom',
+                  end: 'bottom top',
+                  scrub: 1,
+                },
+              });
+            });
+          }
+
+          // ====== Image reveal (clip-path) ======
+          document.querySelectorAll('[data-gsap="reveal-image"]').forEach((el) => {
+            gsap.fromTo(el,
+              { clipPath: 'inset(0 0 100% 0)' },
+              {
+                clipPath: 'inset(0 0 0% 0)',
+                duration: 1,
+                ease: 'power3.inOut',
+                clearProps: 'clipPath',
+                scrollTrigger: {
+                  trigger: el,
+                  start: 'top 80%',
+                  once: true,
+                },
+              },
+            );
+          });
+
+          // ====== Number counters ======
+          document.querySelectorAll('[data-counter]').forEach((el) => {
+            const target = parseFloat((el as HTMLElement).dataset.counter || '0');
+            const prefix = (el as HTMLElement).dataset.counterPrefix || '';
+            const suffix = (el as HTMLElement).dataset.counterSuffix || '';
+            const decimals = target % 1 !== 0 ? 2 : 0;
+
+            const obj = { val: 0 };
+            gsap.to(obj, {
+              val: target,
+              duration: 2,
+              ease: 'power2.out',
+              snap: decimals === 0 ? { val: 1 } : {},
+              scrollTrigger: {
+                trigger: el,
+                start: 'top 85%',
+                once: true,
+              },
+              onUpdate: () => {
+                const formatted = decimals > 0
+                  ? obj.val.toFixed(decimals)
+                  : new Intl.NumberFormat().format(Math.round(obj.val));
+                (el as HTMLElement).textContent = `${prefix}${formatted}${suffix}`;
+              },
+            });
+          });
+
+          // ====== Line draw ======
+          document.querySelectorAll('[data-gsap="draw-line"]').forEach((el) => {
+            gsap.from(el, {
+              scaleX: 0,
+              transformOrigin: 'left center',
+              duration: 1,
+              ease: 'power2.inOut',
+              scrollTrigger: {
+                trigger: el,
+                start: 'top 85%',
+                once: true,
+              },
+            });
+          });
+
+          // Refresh after images load
+          window.addEventListener('load', () => ScrollTrigger.refresh(), { once: true });
+        });
+
+        // Cleanup on page swap
+        document.addEventListener('astro:before-swap', () => ctx.revert(), { once: true });
+      });
+
+      // ====== Page transition animation ======
+      document.addEventListener('astro:before-swap', () => {
+        const overlay = document.getElementById('page-transition');
+        if (overlay) {
+          gsap.to(overlay, {
+            scaleY: 1,
+            transformOrigin: 'bottom',
+            duration: 0.4,
+            ease: 'power3.inOut',
+          });
+        }
+      });
+
+      document.addEventListener('astro:after-swap', () => {
+        const overlay = document.getElementById('page-transition');
+        if (overlay) {
+          gsap.fromTo(
+            overlay,
+            { scaleY: 1, transformOrigin: 'top' },
+            {
+              scaleY: 0,
+              duration: 0.4,
+              ease: 'power3.inOut',
+              delay: 0.1,
+            }
+          );
+        }
+      });
+    </script>
+  </body>
+</html>
