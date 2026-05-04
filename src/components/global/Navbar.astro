@@ -39,6 +39,15 @@ const currentPath = Astro.url.pathname;
         Customer Service
       </a>
       <a
+        href="/cv"
+        class:list={[
+          'text-sm font-medium transition-colors hover:text-text-primary',
+          currentPath === '/cv' ? 'text-text-primary' : 'text-text-secondary',
+        ]}
+      >
+        CV
+      </a>
+      <a
         href="mailto:yudyguo@gmail.com"
         class="text-sm font-medium text-surface-light bg-text-primary px-4 py-2 rounded-full hover:bg-surface-dark transition-colors"
       >
@@ -60,6 +69,7 @@ const currentPath = Astro.url.pathname;
       <a href="/" class="text-base font-medium text-text-primary">Home</a>
       <a href="/project1" class="text-base font-medium text-text-secondary">Data Panel</a>
       <a href="/project2" class="text-base font-medium text-text-secondary">Customer Service</a>
+      <a href="/cv" class="text-base font-medium text-text-secondary">CV</a>
       <a href="mailto:yudyguo@gmail.com" class="text-base font-medium text-accent-green">Contact</a>
     </div>
   </div>

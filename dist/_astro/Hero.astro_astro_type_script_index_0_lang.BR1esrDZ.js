@@ -1,1 +1,0 @@
-import{g as t}from"./index.xgxdCp6f.js";document.addEventListener("astro:page-load",()=>{const e=document.querySelectorAll(".hero-char");if(e.length===0)return;const r=t.context(()=>{t.from(e,{y:120,opacity:0,duration:1,ease:"power3.out",stagger:.05,delay:.3})});document.addEventListener("astro:before-swap",()=>r.revert(),{once:!0})});

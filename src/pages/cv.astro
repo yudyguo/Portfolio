@@ -1,0 +1,209 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import Navbar from '../components/global/Navbar.astro';
+import Footer from '../components/global/Footer.astro';
+import '../styles/global.css';
+---
+
+<BaseLayout title="CV — Yadi Guo">
+  <Navbar />
+
+  <main class="pt-24 pb-20">
+    <!-- Header -->
+    <section class="max-w-4xl mx-auto px-6 md:px-10 mb-16">
+      <div class="flex flex-col md:flex-row md:items-end md:justify-between gap-6" data-gsap="fade-up">
+        <div>
+          <p class="text-text-muted text-xs uppercase tracking-widest mb-3">Curriculum Vitae</p>
+          <h1 class="font-serif text-4xl md:text-5xl font-semibold text-text-primary">Yadi Guo</h1>
+          <p class="text-text-secondary mt-3 text-lg max-w-xl leading-relaxed">
+            Detail-oriented and user-focused UX/UI Designer with strong skills in user research, product thinking, and interaction design.
+          </p>
+        </div>
+        <a
+          href="/Yudy-resume.pdf"
+          download
+          class="inline-flex items-center gap-2 text-sm font-medium bg-text-primary text-surface-light px-5 py-2.5 rounded-full hover:bg-surface-dark transition-colors shrink-0 self-start md:self-auto"
+        >
+          <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M12 5v14m0 0l-6-6m6 6l6-6M5 19h14"/></svg>
+          Download PDF
+        </a>
+      </div>
+    </section>
+
+    <!-- Contact Bar -->
+    <section class="max-w-4xl mx-auto px-6 md:px-10 mb-16" data-gsap="fade-up">
+      <div class="flex flex-wrap gap-x-6 gap-y-2 text-sm text-text-secondary border-t border-b border-black/5 py-4">
+        <span>Vienna, Austria</span>
+        <span class="hidden md:inline text-text-muted">|</span>
+        <a href="mailto:yudyguo@gmail.com" class="hover:text-text-primary transition-colors">yudyguo@gmail.com</a>
+        <span class="hidden md:inline text-text-muted">|</span>
+        <a href="https://www.linkedin.com/in/yadi-guo-8192b8233" target="_blank" rel="noopener" class="hover:text-text-primary transition-colors">LinkedIn</a>
+      </div>
+    </section>
+
+    <!-- Experience -->
+    <section class="max-w-4xl mx-auto px-6 md:px-10 mb-16">
+      <h2 class="font-serif text-2xl font-semibold text-text-primary mb-8 pb-2 border-b border-black/10" data-gsap="fade-up">Experience</h2>
+
+      <div class="space-y-12" data-gsap="stagger-children">
+        <!-- MQJC -->
+        <div>
+          <div class="flex flex-col md:flex-row md:items-baseline md:justify-between gap-1 mb-3">
+            <div>
+              <h3 class="text-lg font-semibold text-text-primary">Product Designer</h3>
+              <p class="text-text-secondary text-sm">MQJC Technology · Wocute Project · Full-time</p>
+            </div>
+            <p class="text-text-muted text-sm shrink-0">Dec 2023 — Dec 2025</p>
+          </div>
+          <ul class="space-y-2 text-text-secondary text-sm leading-relaxed">
+            <li class="flex gap-2"><span class="text-accent-green mt-1.5 shrink-0">·</span><span><strong class="text-text-primary">Research-Driven Decision Making:</strong> Redesigned a cycle tracking tool's UX through behavioral analytics (Hotjar) and in-app surveys, identifying pain points.</span></li>
+            <li class="flex gap-2"><span class="text-accent-green mt-1.5 shrink-0">·</span><span><strong class="text-text-primary">Data-informed Innovation:</strong> Shipped A/B-tested features, contributing to a 50% rise in engagement and 31% higher retention within 6 months.</span></li>
+            <li class="flex gap-2"><span class="text-accent-green mt-1.5 shrink-0">·</span><span><strong class="text-text-primary">Cross-Cultural Design Expertise:</strong> Coordinated 8+ cross-functional teams (UX, PM, Legal) to align design decisions with EU privacy regulations (GDPR) and business goals.</span></li>
+            <li class="flex gap-2"><span class="text-accent-green mt-1.5 shrink-0">·</span><span><strong class="text-text-primary">Mentorship and Team Enablement:</strong> Trained and mentored 2 junior interns through structured onboarding, design feedback, and workflow guidance.</span></li>
+          </ul>
+        </div>
+
+        <!-- Tencent -->
+        <div>
+          <div class="flex flex-col md:flex-row md:items-baseline md:justify-between gap-1 mb-3">
+            <div>
+              <h3 class="text-lg font-semibold text-text-primary">Interaction Designer</h3>
+              <p class="text-text-secondary text-sm">Tencent · WeChat Project · Full-time</p>
+            </div>
+            <p class="text-text-muted text-sm shrink-0">May 2021 — Dec 2023</p>
+          </div>
+          <ul class="space-y-2 text-text-secondary text-sm leading-relaxed">
+            <li class="flex gap-2"><span class="text-accent-green mt-1.5 shrink-0">·</span><span><strong class="text-text-primary">Designed UI and UX for WeChat ecosystem:</strong> Delivered polished high-fidelity designs with minimal supervision, taking full ownership of feature-level UX quality.</span></li>
+            <li class="flex gap-2"><span class="text-accent-green mt-1.5 shrink-0">·</span><span><strong class="text-text-primary">Multi-industry Design:</strong> Collaborated with PMs, engineers, and data teams to translate cross-industry needs (retail, education, lifestyle services) into scalable WeChat product solutions.</span></li>
+            <li class="flex gap-2"><span class="text-accent-green mt-1.5 shrink-0">·</span><span><strong class="text-text-primary">Agile Execution:</strong> Managed and executed 50+ WeChat feature releases with a 98% on-time launch rate, adapting design workflows to Tencent's rigorous quality control.</span></li>
+          </ul>
+        </div>
+
+        <!-- Alipay -->
+        <div>
+          <div class="flex flex-col md:flex-row md:items-baseline md:justify-between gap-1 mb-3">
+            <div>
+              <h3 class="text-lg font-semibold text-text-primary">User Experience Designer</h3>
+              <p class="text-text-secondary text-sm">Alipay · Insurance Software Department · Internship</p>
+            </div>
+            <p class="text-text-muted text-sm shrink-0">Jul 2020 — Oct 2020</p>
+          </div>
+          <p class="text-text-secondary text-sm leading-relaxed">
+            Designed the internal platform for merchants on Alipay, China's largest third-party payment system with over 1 billion users. Conducted user research to optimize workflows.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Education -->
+    <section class="max-w-4xl mx-auto px-6 md:px-10 mb-16">
+      <h2 class="font-serif text-2xl font-semibold text-text-primary mb-8 pb-2 border-b border-black/10" data-gsap="fade-up">Education</h2>
+
+      <div class="space-y-6" data-gsap="stagger-children">
+        <div class="flex flex-col md:flex-row md:items-baseline md:justify-between gap-1">
+          <div>
+            <h3 class="text-base font-semibold text-text-primary">M.S. in Human–Computer Interaction</h3>
+            <p class="text-text-secondary text-sm">Sun Yat-Sen University</p>
+          </div>
+          <p class="text-text-muted text-sm shrink-0">Jul 2021</p>
+        </div>
+        <div class="flex flex-col md:flex-row md:items-baseline md:justify-between gap-1">
+          <div>
+            <h3 class="text-base font-semibold text-text-primary">B.A. in Internet and New Media</h3>
+            <p class="text-text-secondary text-sm">Sun Yat-Sen University</p>
+          </div>
+          <p class="text-text-muted text-sm shrink-0">Jul 2019</p>
+        </div>
+        <div class="flex flex-col md:flex-row md:items-baseline md:justify-between gap-1">
+          <div>
+            <h3 class="text-base font-semibold text-text-primary">Exchange Program</h3>
+            <p class="text-text-secondary text-sm">Centre Universitaire d'Enseignement du Journalisme (CUEJ), Strasbourg, France</p>
+          </div>
+          <p class="text-text-muted text-sm shrink-0">Oct 2018</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Awards -->
+    <section class="max-w-4xl mx-auto px-6 md:px-10 mb-16">
+      <h2 class="font-serif text-2xl font-semibold text-text-primary mb-8 pb-2 border-b border-black/10" data-gsap="fade-up">Awards</h2>
+
+      <div class="space-y-4" data-gsap="stagger-children">
+        <div class="flex flex-col md:flex-row md:items-baseline md:justify-between gap-1">
+          <p class="text-text-primary text-sm font-medium">Red Dot Design Award: Design Concept (Finalist)</p>
+          <p class="text-text-muted text-sm">2020</p>
+        </div>
+        <div class="flex flex-col md:flex-row md:items-baseline md:justify-between gap-1">
+          <p class="text-text-primary text-sm font-medium">China University Innovation Contest: National 2nd place</p>
+          <p class="text-text-muted text-sm">2018</p>
+        </div>
+        <div class="flex flex-col md:flex-row md:items-baseline md:justify-between gap-1">
+          <p class="text-text-primary text-sm font-medium">iGEM: Gold Medal · Best Software · Nominated for Best Applied Design</p>
+          <p class="text-text-muted text-sm">2017</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Skills & Languages -->
+    <section class="max-w-4xl mx-auto px-6 md:px-10 mb-16">
+      <div class="grid md:grid-cols-2 gap-12">
+        <!-- Skills -->
+        <div>
+          <h2 class="font-serif text-2xl font-semibold text-text-primary mb-8 pb-2 border-b border-black/10" data-gsap="fade-up">Skills</h2>
+          <div class="flex flex-wrap gap-2" data-gsap="stagger-children">
+            <span class="text-sm text-text-primary bg-surface-warm px-3.5 py-1.5 rounded-full border border-black/5">Figma</span>
+            <span class="text-sm text-text-primary bg-surface-warm px-3.5 py-1.5 rounded-full border border-black/5">Sketch</span>
+            <span class="text-sm text-text-primary bg-surface-warm px-3.5 py-1.5 rounded-full border border-black/5">HTML · CSS</span>
+            <span class="text-sm text-text-primary bg-surface-warm px-3.5 py-1.5 rounded-full border border-black/5">ReactJS</span>
+            <span class="text-sm text-text-primary bg-surface-warm px-3.5 py-1.5 rounded-full border border-black/5">Adobe After Effects</span>
+            <span class="text-sm text-text-primary bg-surface-warm px-3.5 py-1.5 rounded-full border border-black/5">Adobe Illustrator</span>
+            <span class="text-sm text-text-primary bg-surface-warm px-3.5 py-1.5 rounded-full border border-black/5">Adobe Photoshop</span>
+            <span class="text-sm text-text-primary bg-surface-warm px-3.5 py-1.5 rounded-full border border-black/5">Premiere</span>
+            <span class="text-sm text-text-primary bg-surface-warm px-3.5 py-1.5 rounded-full border border-black/5">Final Cut Pro</span>
+          </div>
+        </div>
+
+        <!-- Languages -->
+        <div>
+          <h2 class="font-serif text-2xl font-semibold text-text-primary mb-8 pb-2 border-b border-black/10" data-gsap="fade-up">Languages</h2>
+          <div class="space-y-3" data-gsap="stagger-children">
+            <div class="flex justify-between items-center">
+              <span class="text-sm text-text-primary font-medium">Chinese</span>
+              <span class="text-xs text-text-muted uppercase tracking-wide">First Language</span>
+            </div>
+            <div class="flex justify-between items-center">
+              <span class="text-sm text-text-primary font-medium">Cantonese</span>
+              <span class="text-xs text-text-muted uppercase tracking-wide">Fluent</span>
+            </div>
+            <div class="flex justify-between items-center">
+              <span class="text-sm text-text-primary font-medium">English</span>
+              <span class="text-xs text-text-muted uppercase tracking-wide">Fluent</span>
+            </div>
+            <div class="flex justify-between items-center">
+              <span class="text-sm text-text-primary font-medium">German</span>
+              <span class="text-xs text-text-muted uppercase tracking-wide">Conversation</span>
+            </div>
+            <div class="flex justify-between items-center">
+              <span class="text-sm text-text-primary font-medium">Japanese</span>
+              <span class="text-xs text-text-muted uppercase tracking-wide">Conversation</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Interests -->
+    <section class="max-w-4xl mx-auto px-6 md:px-10">
+      <h2 class="font-serif text-2xl font-semibold text-text-primary mb-8 pb-2 border-b border-black/10" data-gsap="fade-up">Interests</h2>
+      <div class="flex flex-wrap gap-2" data-gsap="stagger-children">
+        <span class="text-sm text-text-secondary bg-surface-warm px-3.5 py-1.5 rounded-full border border-black/5">Hiking</span>
+        <span class="text-sm text-text-secondary bg-surface-warm px-3.5 py-1.5 rounded-full border border-black/5">Dancing</span>
+        <span class="text-sm text-text-secondary bg-surface-warm px-3.5 py-1.5 rounded-full border border-black/5">Cat</span>
+        <span class="text-sm text-text-secondary bg-surface-warm px-3.5 py-1.5 rounded-full border border-black/5">Travel</span>
+        <span class="text-sm text-text-secondary bg-surface-warm px-3.5 py-1.5 rounded-full border border-black/5">Museum</span>
+      </div>
+    </section>
+  </main>
+
+  <Footer />
+</BaseLayout>
