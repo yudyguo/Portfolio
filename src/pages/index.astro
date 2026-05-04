@@ -6,6 +6,7 @@ import Hero from '../components/home/Hero.astro';
 import ProjectCard from '../components/home/ProjectCard.astro';
 import ContactSection from '../components/home/ContactSection.astro';
 import '../styles/global.css';
+const base = import.meta.env.BASE_URL.replace(/\/$/, '');
 ---
 
 <BaseLayout>
@@ -28,16 +29,16 @@ import '../styles/global.css';
             title="WeChat Official Accounts Data Panel"
             subtitle="Redesigning the landing page data panel with user research-driven data prioritization"
             role="UX Research & Design"
-            href="/project1"
-            image="/images/project1/cover.jpg"
+            href={`${base}/project1`}
+            image={`${base}/images/project1/cover.jpg`}
             index={0}
           />
           <ProjectCard
             title="WeChat Customer Service System"
             subtitle="Unifying cross-platform experiences with a component library and scenario-based optimization"
             role="Design System & Optimization"
-            href="/project2"
-            image="/images/project2/cover.jpg"
+            href={`${base}/project2`}
+            image={`${base}/images/project2/cover.jpg`}
             index={1}
           />
         </div>
