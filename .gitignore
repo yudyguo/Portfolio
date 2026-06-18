@@ -27,3 +27,7 @@ Thumbs.db
 
 # Claude local
 .claude/settings.local.json
+
+*.png
+*.pdf
+*.txt
